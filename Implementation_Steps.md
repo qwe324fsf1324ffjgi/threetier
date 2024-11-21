@@ -31,7 +31,7 @@ sudo yum install mysql -y
 Connect to the database and perform basic configuration: Replace below info with your DB information
 
 ```bash
-mysql -h mydb.cfpgnjehw330.ap-south-1.rds.amazonaws.com -u admin -p
+mysql -h mytierdb.czwc8icmit9b.us-east-1.rds.amazonaws.com -u admin -p
 ```
 
 In the MySQL shell, execute the following commands:
@@ -49,7 +49,7 @@ CREATE TABLE IF NOT EXISTS transactions(
 );
 
 SHOW TABLES;
-INSERT INTO transactions (amount, description) VALUES ('400', 'groceries');
+INSERT INTO transactions (amount, description) VALUES ('400', 'zerah');
 SELECT * FROM transactions;
 ```
 
@@ -75,7 +75,7 @@ Download application code from S3 and start the application:
 
 ```bash
 cd ~/
-aws s3 cp s3://3tierproject-avinash/application-code/app-tier/ app-tier --recursive
+aws s3 cp s3://yt3thierapp/application-code/app-tier/ app-tier --recursive
 
 cd ~/app-tier
 npm install
@@ -116,7 +116,7 @@ nvm install 16
 nvm use 16
 
 cd ~/
-aws s3 cp s3://3tierproject-avinash/application-code/web-tier/ web-tier --recursive
+aws s3 cp s3://yt3thierapp/application-code/web-tier/ web-tier --recursive
 
 cd ~/web-tier
 npm install
@@ -132,13 +132,13 @@ cd /etc/nginx
 ls
 
 sudo rm nginx.conf
-sudo aws s3 cp s3://3tierproject-avinash/application-code/nginx.conf .
+sudo aws s3 cp s3://yt3thierapp/application-code/nginx.conf .
 
 sudo service nginx restart
 
-chmod -R 755 /home/ec2-user
+chmod -R 755 /home/ec2-user # use command in respect to distro
 
-sudo chkconfig nginx on
+sudo chkconfig nginx on # use command in respect to distro
 ```
 ```
 
